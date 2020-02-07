@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comment Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <div class="jumbotron">
+        <h3 align="center">Comment Page</h3><hr><hr><br><br>
+     <a href="{% url 'display_task_name' %}"><button type="button" class="btn btn-warning">Back to task table</button></a><br><br><br>    
+<table class="table">
+    <form method="POST">
+        {% csrf_token %}
+        {% if tasks %}
+        <tr><th>Task Name :</th>
+         <th><select name="taskname">
+            {% for task in tasks %}
+            <option value="{{task}}">{{task.task_title}}</option>
+            {% endfor %}
+        </select></th></tr>
+        {% endif %}
+        
+        <tr><td><strong>Comment Here :</strong></td>
+        <td><textarea name="comment" cols="30" rows="4">Write comment Here :    
+        </textarea></td></tr>
+        <tr><td></td> <td><input type="submit" value="Comment" class="btn btn-primary"></td>  </tr>
+    </form>
+</table>
+    </div>
+</div>
+</body>
+</html>

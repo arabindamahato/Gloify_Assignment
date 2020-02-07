@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create New Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h3 align="center">Add Task Form</h3><hr><hr><br>
+    <a href="{% url 'display_task_name' %}"><button type="button" class="btn btn-warning">Back to task table</button></a><br><br><br>
+    <table class="table">
+    <form method="POST">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+         <tr>
+              <td><strong>Task Title :</strong></td>
+               <td><input type="text" name="task" placeholder="Enter Task"></td>
+        </tr>
+        <tr>
+            <td><strong>Description :</strong></td>
+             <td><input type="text" name="desc" placeholder="Enter Description"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>End Date :</strong>
+            </td> 
+            <td>
+                <input type="text" name="date" placeholder="Type Date here">
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Status</strong></td>
+             <td><input type="radio" name="status" value="open"> Open
+                <input type="radio" name="status" value="close"> Close</td>
+        </tr>
+
+    
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Submit" class="btn btn-primary"></td>
+    </tr>
+    </form>
+</table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+   
